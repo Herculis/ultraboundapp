@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow
+        http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">
+
+	<var name="user" class="com.ultrabound.domain.UserEntity" />
+
+	<view-state id="welcome" view="welcome.xhtml" model="user">
+		<transition on="newUser" to="signup" />
+		<transition on="loginUser" to="main">
+			<evaluate expression="userService.checkUser(user)"/>
+		</transition>
+	</view-state>
+	
+	<view-state id="signup" view="signup.xhtml" model="user">
+		<transition on="backToSignIn" to="welcome"/>
+		<transition on="confirmSignUp" to="welcome">
+			<evaluate expression="userService.createUser(user)" />
+		</transition>
+	</view-state>
+	
+	<view-state id="main" view="main.xhtml"></view-state>
+
+</flow>
