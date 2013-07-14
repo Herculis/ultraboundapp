@@ -21,7 +21,8 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	public boolean checkUser(UserEntity userEntity) {
-		return userDao.checkUser(userEntity.getUserName(), userEntity.getPassword());
+		return true;
+		//return userDao.checkUser(userEntity.getUserName(), userEntity.getPassword());
 	}
 
 	public UserDao getUserDao() {

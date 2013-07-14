@@ -5,7 +5,9 @@ import javax.persistence.Query;
 
 import org.springframework.util.Assert;
 
+import com.ultrabound.commons.dao.GenericJpaDao;
 import com.ultrabound.dao.UserDao;
+import com.ultrabound.domain.UserEntity;
 
 /**
  * Data access object JPA implementation to work with
